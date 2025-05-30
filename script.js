@@ -8,15 +8,30 @@ const options = [
 
 let currentOption = 0;
 
+// Funksjon for å vise alternativene
 function showOptions() {
     document.getElementById("option1").textContent = options[currentOption][0];
     document.getElementById("option2").textContent = options[currentOption][1];
 }
 
-document.getElementById("nextButton").addEventListener("click", function() {
-    currentOption = (currentOption + 1) % options.length;
+// Funksjon for å starte spillet
+function startGame() {
+    document.getElementById("main-container").innerHTML = `
+        <h1>Pest eller Kolera</h1>
+        <div id="options">
+            <p id="option1"></p>
+            <p id="option2"></p>
+        </div>
+        <button id="nextButton">Neste valg</button>
+    `;
     showOptions();
-});
 
-// Vis de første alternativene
-showOptions();
+    // Legg til event listener for å oppdatere alternativene
+    document.getElementById("nextButton").addEventListener("click", function() {
+        currentOption = (currentOption + 1) % options.length;
+        showOptions();
+    });
+}
+
+// Legg til event listener for startknappen
+document.getElementById("startButton").addEventListener("click", startGame);
