@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Pest eller Kolera</h1>
+        <h1>Pest eller kolera</h1>
         <div id="options">
             <p id="option1"></p>
             <p id="option2"></p>
