@@ -1,2 +1,2 @@
-# Pest-eller-kolera
+# Pest eller kolera
 Et enkelt spill
