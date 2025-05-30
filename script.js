@@ -10,18 +10,17 @@ let currentOption = 0;
 
 // Funksjon for å vise alternativene
 function showOptions() {
-    document.getElementById("option1").textContent = options[currentOption][0];
-    document.getElementById("option2").textContent = options[currentOption][1];
+    const option1 = options[currentOption][0];
+    const option2 = options[currentOption][1];
+
+    const optionsContainer = document.getElementById("options");
+    optionsContainer.innerHTML = `<p>${option1} <strong>eller</strong> ${option2}</p>`;
 }
 
 // Funksjon for å starte spillet
 function startGame() {
     document.getElementById("main-container").innerHTML = `
-        <h1>Pest eller Kolera</h1>
-        <div id="options">
-            <p id="option1"></p>
-            <p id="option2"></p>
-        </div>
+        <div id="options"></div>
         <button id="nextButton">Neste valg</button>
     `;
     showOptions();
