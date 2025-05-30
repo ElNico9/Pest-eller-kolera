@@ -10,27 +10,25 @@ let currentOption = 0;
 
 // Funksjon for å vise alternativene
 function showOptions() {
-    const option1 = options[currentOption][0];
-    const option2 = options[currentOption][1];
-
     const optionsContainer = document.getElementById("options");
-    optionsContainer.innerHTML = `<p>${option1} <strong>eller</strong> ${option2}</p>`;
+    optionsContainer.innerHTML = `<p>${options[currentOption][0]} <strong>eller</strong> ${options[currentOption][1]}</p>`;
 }
 
 // Funksjon for å starte spillet
 function startGame() {
-    document.getElementById("main-container").innerHTML = `
-        <div id="options"></div>
-        <button id="nextButton">Neste valg</button>
-    `;
-    showOptions();
+    document.getElementById("game-title").style.display = "none"; // Skjul tittelen
+    document.getElementById("startButton").style.display = "none"; // Skjul startknappen
 
-    // Legg til event listener for å oppdatere alternativene
-    document.getElementById("nextButton").addEventListener("click", function() {
-        currentOption = (currentOption + 1) % options.length;
-        showOptions();
-    });
+    document.getElementById("options").style.display = "block"; // Vis alternativene
+    document.getElementById("nextButton").style.display = "block"; // Vis neste knapp
+
+    showOptions(); // Vis første spørsmål
 }
 
 // Legg til event listener for startknappen
 document.getElementById("startButton").addEventListener("click", startGame);
+
+document.getElementById("nextButton").addEventListener("click", function() {
+    currentOption = (currentOption + 1) % options.length; // Oppdater alternativet
+    showOptions(); // Vis neste alternativ
+});
